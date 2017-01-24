@@ -10,5 +10,5 @@ https://www.freebsd.org/doc/ru/books/handbook/network-diskless.html
 NFS setup manual (on Russian)
 http://www.opennet.ru/base/net/nfs_setup.txt.html
 
-some tips
+some tips (showmount -ae)
 https://oioki.ru/2009/07/nfs-nekotoryie-oshibki/
