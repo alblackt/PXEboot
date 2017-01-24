@@ -1,7 +1,7 @@
 PXE Description on Russian:
 http://xgu.ru/wiki/PXE
 
-Manual how to make installation PXE-Server:
+Manual how to make PXE-Server for loading servers:
 https://habrahabr.ru/company/serverclub/blog/250549/
 
 How to make network boot for FreeBSD hardless station:
