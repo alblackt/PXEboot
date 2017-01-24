@@ -4,3 +4,11 @@ http://xgu.ru/wiki/PXE
 Manual how to make installation PXE-Server:
 https://habrahabr.ru/company/serverclub/blog/250549/
 
+How to make network boot for FreeBSD hardless station:
+https://www.freebsd.org/doc/ru/books/handbook/network-diskless.html
+
+NFS setup manual (on Russian)
+http://www.opennet.ru/base/net/nfs_setup.txt.html
+
+some tips
+https://oioki.ru/2009/07/nfs-nekotoryie-oshibki/
