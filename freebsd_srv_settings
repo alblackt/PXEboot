@@ -1,0 +1,16 @@
+Options for loading NFS, and TFTP: 
+
+1. Enable NFS
+rc.conf
+
+#### NFS Server options
+portmap_enable="YES"
+rpcbind_enable="YES"
+nfs_server_enable="YES"
+nfs_server_flags="-u -t -n 10"
+nfs_client_enable="YES"
+mountd_enable="YES"
+mountd_flags="r"
+
+
+2. NFS settinsg in /etc/exprots
