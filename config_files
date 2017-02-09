@@ -1,0 +1,8 @@
+###UPDATE
+
+freebsd-update fetch
+freebsd-update install
+pkg update
+pkg install mc atftp isc-dhcp43-server
+
+
