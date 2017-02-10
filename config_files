@@ -1,8 +1,91 @@
-###UPDATE
+###Update system
 
 freebsd-update fetch
 freebsd-update install
 pkg update
 pkg install mc atftp isc-dhcp43-server
+cd /usr/ports/
+portsnap fetch
+portsnap extract
+cd /usr/ports/emulators/open-vm-tools-nox11
+make install
+
+
+
+### Config files
+/etc/rc.conf
+hostname="srv-dskless"
+keymap="ru.koi8-r.win.kbd"
+ifconfig_em1="inet 172.23.0.99 netmask 255.255.255.0"
+ifconfig_em0="inet 192.168.200.1 netmask 255.255.255.0"
+defaultrouter="172.23.0.1"
+sshd_enable="YES"
+
+
+###VMWare tools
+vmware_guest_vmblock_enable="YES"
+vmware_guest_vmhgfs_enable="YES"
+vmware_guest_vmmemctl_enable="YES"
+vmware_guest_vmxnet_enable="YES"
+vmware_guestd_enable="YES"
+
+###DHCPD enable
+dhcpd_enable="YES"
+
+### NFS enable
+portmap_enable="YES"
+rpcbind_enable="YES"
+nfs_server_enable="YES"
+nfs_server_flags="-u -t -n 10"
+mountd_flags="-r"
+nfs_client_enable="YES"
+
+### TFTP enable
+atftpd_enable="YES"
+
+
+# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+dumpdev="AUTO"
+
+
+/usr/local/etc/dhcpd.conf
+
+local-address 192.168.200.1;
+
+ddns-update-style interim;
+authoritative;
+
+class "PXE" {
+        match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
+        log (info,option dhcp-client-identifier);
+        log (info, "v klass-e ");
+    }
+subnet 192.168.200.0 netmask 255.255.255.0 {
+    option domain-name "local";
+    option domain-name-servers 192.168.200.1;
+    option subnet-mask 255.255.255.0;
+    option routers 192.168.200.1;
+    default-lease-time 3600;
+    max-lease-time 3600;
+    option netbios-node-type 4;
+    option default-tcp-ttl 10;
+    deny duplicates;
+
+    pool {
+        deny members of "PXE";
+        range 192.168.200.40 192.168.200.100;
+#       host ws-12 { fixed-address 192.168.200.100;     hardware ethernet 00:1d:60:35:52:67; }
+        allow unknown-clients;
+    }
+    pool {
+        allow members of "PXE";
+        range 192.168.200.240 192.168.200.254;
+#### PXE boot
+        next-server 192.168.200.1;
+        filename "pxeboot";
+        option root-path "192.168.200.1:/diskless_root/";
+        allow unknown-clients;
+    }
+}
 
 
