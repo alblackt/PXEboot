@@ -1,0 +1,21 @@
+#This script makes 2 partitions and formated them in UFS. 
+#Target hdd -da0 - 30Gb. Each partition will be 15Gb size. 
+
+#Show all drives
+#we can use "geom disk list" or "camcontrol devlist"
+#Destroy if something exist 
+gpart destroy -F da0
+#Create GPT
+gpart create -s gpt /dev/da0
+#Create partitions. First partition 15 Gb, 
+#Second -till the end of hard drive
+#gpart add -t freebsd-ufs -s 31457280 /dev/da0
+gpart add -t freebsd-ufs -s 15G /dev/da0
+gpart add -t freebsd-ufs /dev/da0
+
+#gpart show da0
+#make UFS file system with soft updates (-U)
+newfs -U /dev/da0p1
+newfs -U /dev/da0p2
+
+
