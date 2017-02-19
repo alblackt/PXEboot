@@ -1,2 +1,22 @@
 #Urls: http://www.syslinux.org/wiki/index.php?title=PXELINUX
-#PDF to ISC-DHCP server https://www.isc.org/wp-content/uploads/2014/08/DHCP-4.3.1-Distribution-Documentation-Aug-4-14.pdf
+
+
+#We can use different configuretions depending of IP, MAC and UID
+
+"
+Configuration filename
+
+For DHCP siaddr "192.168.2.3", file "mybootdir/pxelinux.0", client UUID "b8945908-d6a6-41a9-611d-74a6ab80b83d", Ethernet MAC address "88:99:AA:BB:CC:DD" and IPv4 address "192.168.2.91", the following files will be attempted in this order (after "config-file" options):
+
+	mybootdir/pxelinux.cfg/b8945908-d6a6-41a9-611d-74a6ab80b83d
+	mybootdir/pxelinux.cfg/01-88-99-aa-bb-cc-dd
+	mybootdir/pxelinux.cfg/C0A8025B
+	mybootdir/pxelinux.cfg/C0A8025
+	mybootdir/pxelinux.cfg/C0A802
+	mybootdir/pxelinux.cfg/C0A80
+	mybootdir/pxelinux.cfg/C0A8
+	mybootdir/pxelinux.cfg/C0A
+	mybootdir/pxelinux.cfg/C0
+	mybootdir/pxelinux.cfg/C
+	mybootdir/pxelinux.cfg/default
+"
