@@ -49,43 +49,5 @@ dumpdev="AUTO"
 
 
 /usr/local/etc/dhcpd.conf
-
-local-address 192.168.200.1;
-
-ddns-update-style interim;
-authoritative;
-
-class "PXE" {
-        match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
-        log (info,option dhcp-client-identifier);
-        log (info, "v klass-e ");
-    }
-subnet 192.168.200.0 netmask 255.255.255.0 {
-    option domain-name "local";
-    option domain-name-servers 192.168.200.1;
-    option subnet-mask 255.255.255.0;
-    option routers 192.168.200.1;
-    default-lease-time 3600;
-    max-lease-time 3600;
-    option netbios-node-type 4;
-    option default-tcp-ttl 10;
-    deny duplicates;
-
-    pool {
-        deny members of "PXE";
-        range 192.168.200.40 192.168.200.100;
-#       host ws-12 { fixed-address 192.168.200.100;     hardware ethernet 00:1d:60:35:52:67; }
-        allow unknown-clients;
-    }
-    pool {
-        allow members of "PXE";
-        range 192.168.200.240 192.168.200.254;
-#### PXE boot
-        next-server 192.168.200.1;
-        filename "pxeboot";
-        option root-path "192.168.200.1:/diskless_root/";
-        allow unknown-clients;
-    }
-}
-
+#Now located in separate file
 
