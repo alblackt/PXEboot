@@ -1,0 +1,2 @@
+/diskless_root -alldirs -maproot=root -network 192.168.200/24
+/diskless_linux -alldirs -maproot=root -network 192.168.200/24

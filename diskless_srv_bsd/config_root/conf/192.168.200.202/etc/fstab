@@ -1,0 +1,12 @@
+# Device	Mountpoint	FStype	Options	Dump	Pass#
+192.168.200.1:/diskless_root	/	nfs	ro	0	0
+md	/tmp	mfs	-s=30m,rw	0	0
+md	/root	mfs	-s=30m,rw	0	0
+#md	/var	mfs	-s=30m,rw	0	0
+proc	/proc	procfs	rw	0	0
+/dev/da0p1      none            swap    sw      0       0
+/dev/da0p2      /usr/local      ufs     rw      2       2
+/dev/da0p3      /var            ufs     rw      2       2
+#/dev/da1p1      /var/ftp        ufs     rw      2       2
+
+
