@@ -2,8 +2,7 @@
 PXE boot learn project
 
 FreeBSD as sever for diskless boot 
-For *NIX OS only. 
-For Windows you will need to install another TFTP server:
+(*NIX OS only, for Windows you will need to install another TFTP server)
 
 
 How to use: 
