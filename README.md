@@ -6,6 +6,7 @@ FreeBSD as sever for diskless boot
 
 
 How to use: 
+
 0. Read about PXE boot stages 
 1. Inatall clean FreeBSD
 2. Update. Install atftp, isc-dhcpd, nfs:
