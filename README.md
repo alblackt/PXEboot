@@ -15,8 +15,8 @@ How to use:
 
 
 /diskless_srv_bsd:
--bsd_scripts - usefull scripts
--config_root - config files from root directory
--urls - usefull links 
+- bsd_scripts - usefull scripts
+- config_root - config files from root directory
+- urls - usefull links 
 
 
